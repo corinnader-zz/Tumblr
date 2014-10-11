@@ -12,6 +12,7 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var composeButton: UIButton!
+    @IBOutlet weak var tooltipImage: UIImageView!
     
     var homeViewController: UIViewController!
     var searchViewController: UIViewController!
@@ -32,6 +33,11 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
         searchViewController = storyboard.instantiateViewControllerWithIdentifier("SearchViewController") as UIViewController
         accountViewController = storyboard.instantiateViewControllerWithIdentifier("AccountViewController") as UIViewController
         trendingViewController = storyboard.instantiateViewControllerWithIdentifier("TrendingViewController") as UIViewController
+        
+        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat, animations: { () -> Void in
+            self.tooltipImage.transform = CGAffineTransformMakeTranslation(0, 5)
+            }, completion: nil)
+        
     }
 
     override func didReceiveMemoryWarning() {

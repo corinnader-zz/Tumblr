@@ -19,9 +19,10 @@ class ComposeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        composeView.alpha = 0.8
+        
+ 
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,8 +30,37 @@ class ComposeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
     @IBAction func onNevermindButton(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
+        
+        //Animate out icons
+        UIView.animateWithDuration(0.7, animations: { () -> Void in
+            self.textImage.transform = CGAffineTransformMakeTranslation( 0, -200)
+        })
+        
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            self.photoImage.transform = CGAffineTransformMakeTranslation( 0, -200)
+        })
+        
+        UIView.animateWithDuration(0.6, animations: { () -> Void in
+            self.quoteImage.transform = CGAffineTransformMakeTranslation( 0, -200)
+        })
+        
+        UIView.animateWithDuration(0.7, animations: { () -> Void in
+            self.linkImage.transform = CGAffineTransformMakeTranslation( 0, -200)
+        })
+        
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            self.chatImage.transform = CGAffineTransformMakeTranslation( 0, -200)
+        })
+        
+        UIView.animateWithDuration(0.6, animations: { () -> Void in
+            self.videoImage.transform = CGAffineTransformMakeTranslation( 0, -200)
+        })
+
+        
     }
 
     /*

@@ -35,10 +35,9 @@ This is an assigment I'm working on for the iOS for Designers Bootcamp by CodePa
     * [x] Create outlets for the scroll view and image view and set the content size of the scroll view.
 8. Implement TabBarViewController behavior
     * [x] Connect the tab bar buttons to a shared action function. In that function, add the view of the selected view controller to the contentView.
-    * [] It's useful to track what the currently selected button and view controller is in a property, so you can unselect the button or remove the view controller's view when another button is selected.
-    * [] Guide: Implementing Custom Container View Controllers
+    * [] It's useful to track what the currently selected button and view controller is in a property, so you can unselect the button or remove the view controller's view when another button is selected. Guide: Implementing Custom Container View Controllers
 9. Compose Buttons Transition
-    * [] In the ComposeViewController, create an initializer that sets the ComposeViewController as the transitioning delegate. That allows you the ComposeViewController to determine how it is presented. See the snippet below.
+    * [x] In the ComposeViewController, create an initializer that sets the ComposeViewController as the transitioning delegate. That allows you the ComposeViewController to determine how it is presented. See the snippet below.
 Guide: Custom View Controller Transitions
 10. Login
     * [] Create a custom view controller transition for the login form.
