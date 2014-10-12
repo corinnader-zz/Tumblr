@@ -7,14 +7,14 @@ This is an assigment I'm working on for the iOS for Designers Bootcamp by CodePa
 
 ###Completed user stories:
 
- 1. Setup:
+1. Setup:
     * [x] Create a new project (disable Auto Layout). 
     * [x] Add the image assets above. 
 	* [] Configure the app icon and splash screen. 
 2. Create initial TabBarViewController view
     * [x] Add a view that is 44 pts tall for the tab bar and choose the color.
     * [x] Add 5 buttons for Home, Search, Compose, Account, and Trending. Be sure to configure them as custom buttons with images for the default and selected state.
-    * [x] Add a view for the content above the tab bar. Create an outlet for it called contentView.
+    * [x] Add a view for the content above the tab bar. Create an outlet for it called contentView.    
 3. Create initial HomeViewController view
     * [x] Add 3 image views for the background, text, and spinner.
     * [x] Create empty HomeViewController class.
@@ -35,8 +35,8 @@ This is an assigment I'm working on for the iOS for Designers Bootcamp by CodePa
     * [x] Create outlets for the scroll view and image view and set the content size of the scroll view.
 8. Implement TabBarViewController behavior
     * [x] Connect the tab bar buttons to a shared action function. In that function, add the view of the selected view controller to the contentView.
-    * [] It's useful to track what the currently selected button and view controller is in a property, so you can unselect the button or remove the view controller's view when another button is selected. ** Not sure how to do this. Use tags?     
-    9. Compose Buttons Transition
+    * [] It's useful to track what the currently selected button and view controller is in a property, so you can unselect the button or remove the view controller's view when another button is selected. ** Not sure how to do this. Use tags?         
+9. Compose Buttons Transition
     * [x] In the ComposeViewController, create an initializer that sets the ComposeViewController as the transitioning delegate. That allows you to use the ComposeViewController to determine how it is presented. See the snippet below.
 Guide: Custom View Controller Transitions
 10. Login
