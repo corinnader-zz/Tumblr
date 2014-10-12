@@ -25,7 +25,8 @@ class TabBarViewController: UIViewController{
     var trendingViewController: UIViewController!
        
     var isPresenting: Bool = true
-
+    
+    var selectedTab: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,54 +64,63 @@ class TabBarViewController: UIViewController{
         
     }
 
-    
-    @IBAction func onHomeButton(sender: UIButton) {
-        containerView.addSubview(homeViewController.view)
-        homeViewController.view.frame = containerView.frame
-        homeButton.selected = true
-        searchButton.selected = false
-        accountButton.selected = false
-        trendingButton.selected = false
-        toolTipShow()
-    }
-    
-    @IBAction func onSearchButton(sender: UIButton) {
-        containerView.addSubview(searchViewController.view)
-        searchViewController.view.frame = containerView.frame
-        homeButton.selected = false
-        searchButton.selected = true
-        accountButton.selected = false
-        trendingButton.selected = false
-        toolTipShow()
-    }
-
-    
-    @IBAction func onAccountButton(sender: UIButton) {
-        containerView.addSubview(accountViewController.view)
-        accountViewController.view.frame = containerView.frame
-        homeButton.selected = false
-        searchButton.selected = false
-        accountButton.selected = true
-        trendingButton.selected = false
-        toolTipShow()
-    }
-    
-    @IBAction func onTrendingButton(sender: UIButton) {
-        containerView.addSubview(trendingViewController.view)
-        trendingViewController.view.frame = containerView.frame
-        trendingButton.selected = true
-        searchButton.selected = false
-        accountButton.selected = false
-        homeButton.selected = false
-        toolTipShow()
+  // Must be a smarter way to do this?
+    @IBAction func onTab(sender: AnyObject) {
+        selectedTab = sender as UIButton
         
-    }
-
-    
-    @IBAction func onComposeButton(sender: UIButton) {
-        performSegueWithIdentifier("composeSegue", sender: self)
         
-    }
+        if selectedTab == homeButton{
+            println("home")
+            containerView.addSubview(homeViewController.view)
+            searchViewController.view.removeFromSuperview()
+            accountViewController.view.removeFromSuperview()
+            trendingViewController.view.removeFromSuperview()
+            selectedTab.selected = true
+            searchButton.selected = false
+            accountButton.selected = false
+            trendingButton.selected = false
+            toolTipShow()
+        }
+        
+        else if selectedTab == searchButton{
+            println("search")
+            containerView.addSubview(searchViewController.view)
+            homeViewController.view.removeFromSuperview()
+            accountViewController.view.removeFromSuperview()
+            trendingViewController.view.removeFromSuperview()
+            selectedTab.selected = true
+            homeButton.selected = false
+            accountButton.selected = false
+            trendingButton.selected = false
+            toolTipShow()
+        }
+        
+        if selectedTab == accountButton{
+            println("account")
+            containerView.addSubview(accountViewController.view)
+            homeViewController.view.removeFromSuperview()
+            searchViewController.view.removeFromSuperview()
+            trendingViewController.view.removeFromSuperview()
+            selectedTab.selected = true
+            homeButton.selected = false
+            searchButton.selected = false
+            trendingButton.selected = false
+            toolTipShow()
+        }
+            
+        else if selectedTab == trendingButton{
+            println("trending")
+            containerView.addSubview(trendingViewController.view)
+            homeViewController.view.removeFromSuperview()
+            searchViewController.view.removeFromSuperview()
+            accountViewController.view.removeFromSuperview()
+            selectedTab.selected = true
+            homeButton.selected = false
+            searchButton.selected = false
+            accountButton.selected = false
+            toolTipShow()
+        }
+     }
     
     func toolTipShow(){
         if searchButton.selected == false{
@@ -120,6 +130,11 @@ class TabBarViewController: UIViewController{
         }
     }
     
+    // Is a custom segue needed here?
+    @IBAction func onComposeButton(sender: UIButton) {
+        performSegueWithIdentifier("composeSegue", sender: self)
+    }
+
 
     /*
     // MARK: - Navigation

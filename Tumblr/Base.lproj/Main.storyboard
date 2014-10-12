@@ -30,7 +30,7 @@
                                         <state key="selected" image="search_selected_icon"/>
                                         <state key="highlighted" image="search_selected_icon"/>
                                         <connections>
-                                            <action selector="onSearchButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fbo-KC-QCF"/>
+                                            <action selector="onTab:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="D0a-gn-A4O"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="u5h-Ds-r6j">
@@ -42,7 +42,7 @@
                                         <state key="selected" image="account_selected_icon"/>
                                         <state key="highlighted" image="account_selected_icon"/>
                                         <connections>
-                                            <action selector="onAccountButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gAf-7R-cWg"/>
+                                            <action selector="onTab:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3Tc-wp-J9g"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="67P-Uq-4gd">
@@ -54,7 +54,7 @@
                                         <state key="selected" image="home_selected_icon"/>
                                         <state key="highlighted" image="home_selected_icon"/>
                                         <connections>
-                                            <action selector="onHomeButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oKh-nO-3rm"/>
+                                            <action selector="onTab:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oUM-8e-0K4"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="ywA-H6-k0I">
@@ -66,7 +66,7 @@
                                         <state key="selected" image="trending_selected_icon"/>
                                         <state key="highlighted" image="trending_selected_icon"/>
                                         <connections>
-                                            <action selector="onTrendingButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fxl-c1-AGq"/>
+                                            <action selector="onTab:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="afg-kJ-44O"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="fvL-IO-Wtx">
@@ -76,7 +76,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="mPw-Qm-bAK" kind="custom" identifier="composeSegue" id="4Uu-wP-ILl"/>
+                                            <action selector="onComposeButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oue-DH-WIK"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -97,6 +97,7 @@
                         <outlet property="searchButton" destination="NAD-81-aFP" id="PoZ-9R-Wi6"/>
                         <outlet property="tooltipImage" destination="Oo5-OV-Z93" id="JdW-IL-XsV"/>
                         <outlet property="trendingButton" destination="ywA-H6-k0I" id="8ge-A9-t72"/>
+                        <segue destination="mPw-Qm-bAK" kind="custom" identifier="composeSegue" id="4MP-q5-Fjl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
