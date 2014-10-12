@@ -10,13 +10,36 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var trendingImage: UIImageView!
+    @IBOutlet weak var loadingImage: UIImageView!
+    
+    //var count = Int!
+    
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        scrollView.contentSize = trendingImage.frame.size
+        scrollView.hidden = true
+        var images = UIImage.animatedImageNamed("loading-", duration: 0.7)
+        loadingImage.image = images
     }
     
+    override func viewDidAppear(animated: Bool) {
+        delay(2){
+            self.scrollView.hidden = false
+        }
     
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

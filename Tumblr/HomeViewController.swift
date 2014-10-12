@@ -21,6 +21,19 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    @IBAction func onLoginButton(sender: UIButton) {
+        performSegueWithIdentifier("loginSegue", sender: self)
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        var destinationVC = segue.destinationViewController as UIViewController
+        destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom
+        destinationVC.transitioningDelegate = destinationVC as LoginViewController
+        
+    }
+
 
     /*
     // MARK: - Navigation

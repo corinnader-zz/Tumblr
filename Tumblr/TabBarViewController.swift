@@ -23,8 +23,7 @@ class TabBarViewController: UIViewController{
     var searchViewController: UIViewController!
     var accountViewController: UIViewController!
     var trendingViewController: UIViewController!
-    var currentTab : Int=0
-    
+       
     var isPresenting: Bool = true
 
     

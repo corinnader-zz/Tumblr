@@ -21,7 +21,7 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        animateIconsOut(600)
+        animateIcons(600)
         
     }
 
@@ -58,7 +58,7 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
             
             containerView.addSubview(toViewController.view)
             toViewController.view.alpha = 0
-            animateIconsOut(0)
+            animateIcons(0)
             UIView.animateWithDuration(0.4, animations: { () -> Void in
                 toViewController.view.alpha = 1
                 }) { (finished: Bool) -> Void in
@@ -66,7 +66,7 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
             }
         } else {
             // Outro segue
-            animateIconsOut(-200)
+            animateIcons(-200)
             UIView.animateWithDuration(0.4, animations: { () -> Void in
                 fromViewController.view.alpha = 0
                 }) { (finished: Bool) -> Void in
@@ -77,7 +77,7 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
     }
     
     //Animate out icons
-    func animateIconsOut(position: CGFloat){
+    func animateIcons(position: CGFloat){
         // Text image
         UIView.animateWithDuration(0.7, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut | UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
             self.textImage.transform = CGAffineTransformMakeTranslation(0, position)
@@ -113,7 +113,6 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
     
     @IBAction func onNevermindButton(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
-        //animateIconsOut()
     }
 
     /*

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		402FC63D19EB28D100F4BD19 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402FC63C19EB28D100F4BD19 /* LoginViewController.swift */; };
 		407E4D5019E622C700019F6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407E4D4F19E622C700019F6F /* AppDelegate.swift */; };
 		407E4D5219E622C700019F6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407E4D5119E622C700019F6F /* ViewController.swift */; };
 		407E4D5519E622C700019F6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407E4D5319E622C700019F6F /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		402FC63C19EB28D100F4BD19 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		407E4D4A19E622C700019F6F /* Tumblr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tumblr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		407E4D4E19E622C700019F6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		407E4D4F19E622C700019F6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +48,7 @@
 		40B213D219E79F580008F893 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		40B213D419E79F7C0008F893 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		40B213D819E79FA10008F893 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
-		40B213DC19E7B7E70008F893 /* TrendingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
+		40B213DC19E7B7E70008F893 /* TrendingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrendingViewController.swift; path = ../TrendingViewController.swift; sourceTree = "<group>"; };
 		40B213DE19E7BEC70008F893 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,7 +73,6 @@
 		407E4D4119E622C700019F6F = {
 			isa = PBXGroup;
 			children = (
-				40B213DC19E7B7E70008F893 /* TrendingViewController.swift */,
 				407E4D4C19E622C700019F6F /* Tumblr */,
 				407E4D6219E622C700019F6F /* TumblrTests */,
 				407E4D4B19E622C700019F6F /* Products */,
@@ -90,14 +91,16 @@
 		407E4D4C19E622C700019F6F /* Tumblr */ = {
 			isa = PBXGroup;
 			children = (
+				407E4D5319E622C700019F6F /* Main.storyboard */,
 				407E4D4F19E622C700019F6F /* AppDelegate.swift */,
 				407E4D5119E622C700019F6F /* ViewController.swift */,
-				407E4D5319E622C700019F6F /* Main.storyboard */,
+				40B213D019E793370008F893 /* TabBarViewController.swift */,
 				40B213DE19E7BEC70008F893 /* ComposeViewController.swift */,
 				40B213D219E79F580008F893 /* HomeViewController.swift */,
 				40B213D419E79F7C0008F893 /* SearchViewController.swift */,
 				40B213D819E79FA10008F893 /* AccountViewController.swift */,
-				40B213D019E793370008F893 /* TabBarViewController.swift */,
+				40B213DC19E7B7E70008F893 /* TrendingViewController.swift */,
+				402FC63C19EB28D100F4BD19 /* LoginViewController.swift */,
 				407E4D5619E622C700019F6F /* Images.xcassets */,
 				407E4D5819E622C700019F6F /* LaunchScreen.xib */,
 				407E4D4D19E622C700019F6F /* Supporting Files */,
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				402FC63D19EB28D100F4BD19 /* LoginViewController.swift in Sources */,
 				40B213D519E79F7C0008F893 /* SearchViewController.swift in Sources */,
 				40B213DD19E7B7E70008F893 /* TrendingViewController.swift in Sources */,
 				407E4D5219E622C700019F6F /* ViewController.swift in Sources */,

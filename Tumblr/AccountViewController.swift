@@ -8,8 +8,10 @@
 
 import UIKit
 
-class AccountViewController: UIViewController {
+class AccountViewController: UIViewController, UIViewControllerTransitioningDelegate {
 
+    var isPresenting: Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +23,12 @@ class AccountViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        var destinationVC = segue.destinationViewController as UIViewController
+        destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom
+        destinationVC.transitioningDelegate = self
+        
+    }
 
     /*
     // MARK: - Navigation
