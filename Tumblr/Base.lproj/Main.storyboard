@@ -15,12 +15,6 @@
                             <view contentMode="scaleToFill" id="se2-xG-zUC" userLabel="containerView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="525"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="explore_popup" id="Oo5-OV-Z93">
-                                        <rect key="frame" x="0.0" y="448" width="185" height="77"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.25882352939999997" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="QLS-bo-Dgw" userLabel="tabBarView">
@@ -33,7 +27,7 @@
                                         <state key="normal" image="search_icon">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" image="home_selected_icon"/>
+                                        <state key="selected" image="search_selected_icon"/>
                                         <state key="highlighted" image="search_selected_icon"/>
                                         <connections>
                                             <action selector="onSearchButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fbo-KC-QCF"/>
@@ -45,7 +39,7 @@
                                         <state key="normal" image="account_icon">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" image="account"/>
+                                        <state key="selected" image="account_selected_icon"/>
                                         <state key="highlighted" image="account_selected_icon"/>
                                         <connections>
                                             <action selector="onAccountButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gAf-7R-cWg"/>
@@ -88,13 +82,21 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.25882352941176467" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="explore_popup" id="Oo5-OV-Z93">
+                                <rect key="frame" x="0.0" y="450" width="185" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="accountButton" destination="u5h-Ds-r6j" id="sTO-dQ-6Rd"/>
                         <outlet property="composeButton" destination="fvL-IO-Wtx" id="iue-cG-b34"/>
                         <outlet property="containerView" destination="se2-xG-zUC" id="kLL-ui-odi"/>
+                        <outlet property="homeButton" destination="67P-Uq-4gd" id="3oL-sf-7Xr"/>
+                        <outlet property="searchButton" destination="NAD-81-aFP" id="PoZ-9R-Wi6"/>
                         <outlet property="tooltipImage" destination="Oo5-OV-Z93" id="JdW-IL-XsV"/>
+                        <outlet property="trendingButton" destination="ywA-H6-k0I" id="8ge-A9-t72"/>
                         <segue destination="mPw-Qm-bAK" kind="modal" identifier="composeSegue" id="exf-HT-eFE"/>
                     </connections>
                 </viewController>
@@ -138,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WMV-rp-mD7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-232" y="973"/>
+            <point key="canvasLocation" x="-224" y="973"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="cdh-4N-dSa">
@@ -149,7 +151,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_feed" id="Tet-f3-OGB">
-                                <rect key="frame" x="0.0" y="22" width="320" height="524"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading-1" id="hVa-Q1-eaX">
+                                <rect key="frame" x="130" y="244" width="61" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -158,7 +164,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MsK-JP-N86" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="108" y="973"/>
+            <point key="canvasLocation" x="130" y="973"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="NRY-gw-O2h">
@@ -243,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ceZ-Ds-IUw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="482" y="973"/>
+            <point key="canvasLocation" x="488" y="973"/>
         </scene>
         <!--Trending View Controller-->
         <scene sceneID="13K-MI-lrC">
@@ -273,7 +279,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="67W-4g-rVV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1152" y="973"/>
+            <point key="canvasLocation" x="844" y="973"/>
         </scene>
     </scenes>
     <resources>
@@ -288,6 +294,7 @@
         <image name="home_selected_icon" width="35" height="35"/>
         <image name="home_spinner" width="146" height="146"/>
         <image name="link_icon" width="75" height="95"/>
+        <image name="loading-1" width="61" height="19"/>
         <image name="photo_icon" width="75" height="95"/>
         <image name="quote_icon" width="75" height="96"/>
         <image name="search_feed" width="320" height="524"/>

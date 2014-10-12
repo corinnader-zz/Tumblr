@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ComposeViewController: UIViewController {
+class ComposeViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
+    var isPresenting: Bool = true
+    
     @IBOutlet weak var composeView: UIView!
     @IBOutlet weak var textImage: UIImageView!
     @IBOutlet weak var photoImage: UIImageView!
@@ -19,9 +21,7 @@ class ComposeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
- 
-        
+        animateIconsOut(600)
         
     }
 
@@ -30,37 +30,90 @@ class ComposeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+        isPresenting = true
+        return self
+    }
     
+    func animationControllerForDismissedController(dismissed: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+        isPresenting = false
+        return self
+    }
+    
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+        // The value here should be the duration of the animations scheduled in the animationTransition method
+        return 0.4
+    }
+    
+    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+        // TODO: animate the transition in Step 3 below
+        println("animating transition")
+        var containerView = transitionContext.containerView()
+        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+        
+        
+        if (isPresenting) {
+            // Intro segue
+            
+            containerView.addSubview(toViewController.view)
+            toViewController.view.alpha = 0
+            animateIconsOut(0)
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                toViewController.view.alpha = 1
+                }) { (finished: Bool) -> Void in
+                    transitionContext.completeTransition(true)
+            }
+        } else {
+            // Outro segue
+            animateIconsOut(-200)
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                fromViewController.view.alpha = 0
+                }) { (finished: Bool) -> Void in
+                    transitionContext.completeTransition(true)
+                    fromViewController.view.removeFromSuperview()
+            }
+        }
+    }
+    
+    //Animate out icons
+    func animateIconsOut(position: CGFloat){
+        // Text image
+        UIView.animateWithDuration(0.7, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut | UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+            self.textImage.transform = CGAffineTransformMakeTranslation(0, position)
+            }, completion: nil)
+        
+        // Photo image
+        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            self.photoImage.transform = CGAffineTransformMakeTranslation(0, position)
+            }, completion: nil)
+        
+        // Quote image
+        UIView.animateWithDuration(0.6, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            self.quoteImage.transform = CGAffineTransformMakeTranslation(0, position)
+            }, completion: nil)
+        
+        // Link image
+        UIView.animateWithDuration(0.7, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            self.linkImage.transform = CGAffineTransformMakeTranslation(0, position)
+            }, completion: nil)
+        
+        // Chat image
+        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            self.chatImage.transform = CGAffineTransformMakeTranslation(0, position)
+            }, completion: nil)
+        
+        // Video image
+        UIView.animateWithDuration(0.6, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            self.videoImage.transform = CGAffineTransformMakeTranslation(0, position)
+            }, completion: nil)
+        
+    }
+
     
     @IBAction func onNevermindButton(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
-        
-        //Animate out icons
-        UIView.animateWithDuration(0.7, animations: { () -> Void in
-            self.textImage.transform = CGAffineTransformMakeTranslation( 0, -200)
-        })
-        
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            self.photoImage.transform = CGAffineTransformMakeTranslation( 0, -200)
-        })
-        
-        UIView.animateWithDuration(0.6, animations: { () -> Void in
-            self.quoteImage.transform = CGAffineTransformMakeTranslation( 0, -200)
-        })
-        
-        UIView.animateWithDuration(0.7, animations: { () -> Void in
-            self.linkImage.transform = CGAffineTransformMakeTranslation( 0, -200)
-        })
-        
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            self.chatImage.transform = CGAffineTransformMakeTranslation( 0, -200)
-        })
-        
-        UIView.animateWithDuration(0.6, animations: { () -> Void in
-            self.videoImage.transform = CGAffineTransformMakeTranslation( 0, -200)
-        })
-
-        
+        //animateIconsOut()
     }
 
     /*

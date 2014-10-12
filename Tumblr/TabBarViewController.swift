@@ -8,32 +8,44 @@
 
 import UIKit
 
-class TabBarViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
+class TabBarViewController: UIViewController{
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var composeButton: UIButton!
     @IBOutlet weak var tooltipImage: UIImageView!
+    @IBOutlet weak var homeButton: UIButton!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var accountButton: UIButton!
+    @IBOutlet weak var trendingButton: UIButton!
+    
     
     var homeViewController: UIViewController!
     var searchViewController: UIViewController!
     var accountViewController: UIViewController!
     var trendingViewController: UIViewController!
+    var currentTab : Int=0
     
     var isPresenting: Bool = true
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        
         // Custom tab controller
         // Main storyboard (nil is default bundle) gives you the storyboard object, handle to things inside
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        // Why? How do you know when to have as UIViewController?
         homeViewController = storyboard.instantiateViewControllerWithIdentifier("HomeViewController") as UIViewController
         searchViewController = storyboard.instantiateViewControllerWithIdentifier("SearchViewController") as UIViewController
         accountViewController = storyboard.instantiateViewControllerWithIdentifier("AccountViewController") as UIViewController
         trendingViewController = storyboard.instantiateViewControllerWithIdentifier("TrendingViewController") as UIViewController
         
+        containerView.addSubview(homeViewController.view)
+        homeButton.selected = true
+        
+        // Bounce tooltip
         UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat, animations: { () -> Void in
             self.tooltipImage.transform = CGAffineTransformMakeTranslation(0, 5)
             }, completion: nil)
@@ -48,81 +60,66 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         var destinationVC = segue.destinationViewController as UIViewController
         destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom
-        destinationVC.transitioningDelegate = self
+        destinationVC.transitioningDelegate = destinationVC as ComposeViewController
         
     }
-    
-    func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
-        isPresenting = true
-        return self
-    }
-    
-    func animationControllerForDismissedController(dismissed: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
-        isPresenting = false
-        return self
-    }
-    
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
-        // The value here should be the duration of the animations scheduled in the animationTransition method
-        return 0.4
-    }
-
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        // TODO: animate the transition in Step 3 below
-        println("animating transition")
-        var containerView = transitionContext.containerView()
-        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
-        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
-        
-       
-        if (isPresenting) {
-             // Intro segue
-            containerView.addSubview(toViewController.view)
-            toViewController.view.alpha = 0
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
-                toViewController.view.alpha = 1
-                }) { (finished: Bool) -> Void in
-                    transitionContext.completeTransition(true)
-            }
-        } else {
-             // Outro segue
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
-                fromViewController.view.alpha = 0
-                }) { (finished: Bool) -> Void in
-                    transitionContext.completeTransition(true)
-                    fromViewController.view.removeFromSuperview()
-            }
-        }
-    } 
 
     
     @IBAction func onHomeButton(sender: UIButton) {
         containerView.addSubview(homeViewController.view)
-        // Set the frame size of the children view controllers to be same size of the parent containerview
         homeViewController.view.frame = containerView.frame
+        homeButton.selected = true
+        searchButton.selected = false
+        accountButton.selected = false
+        trendingButton.selected = false
+        toolTipShow()
     }
     
     @IBAction func onSearchButton(sender: UIButton) {
         containerView.addSubview(searchViewController.view)
         searchViewController.view.frame = containerView.frame
+        homeButton.selected = false
+        searchButton.selected = true
+        accountButton.selected = false
+        trendingButton.selected = false
+        toolTipShow()
     }
 
     
     @IBAction func onAccountButton(sender: UIButton) {
         containerView.addSubview(accountViewController.view)
         accountViewController.view.frame = containerView.frame
+        homeButton.selected = false
+        searchButton.selected = false
+        accountButton.selected = true
+        trendingButton.selected = false
+        toolTipShow()
     }
     
     @IBAction func onTrendingButton(sender: UIButton) {
         containerView.addSubview(trendingViewController.view)
         trendingViewController.view.frame = containerView.frame
+        trendingButton.selected = true
+        searchButton.selected = false
+        accountButton.selected = false
+        homeButton.selected = false
+        toolTipShow()
+        
     }
+
     
     @IBAction func onComposeButton(sender: UIButton) {
         performSegueWithIdentifier("composeSegue", sender: self)
         
     }
-
+    
+    func toolTipShow(){
+        if searchButton.selected == false{
+            tooltipImage.hidden = false
+        }else{
+            tooltipImage.hidden = true
+        }
+    }
     
 
     /*
