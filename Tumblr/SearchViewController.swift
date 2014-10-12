@@ -10,11 +10,11 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
+
+    @IBOutlet weak var loadingImage: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var trendingImage: UIImageView!
-    @IBOutlet weak var loadingImage: UIImageView!
     
-    //var count = Int!
     
     func delay(delay:Double, closure:()->()) {
         dispatch_after(
@@ -28,7 +28,6 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scrollView.contentSize = trendingImage.frame.size
         scrollView.hidden = true
         var images = UIImage.animatedImageNamed("loading-", duration: 0.7)
         loadingImage.image = images
@@ -36,7 +35,10 @@ class SearchViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         delay(2){
+            
             self.scrollView.hidden = false
+            self.scrollView.contentSize = self.trendingImage.image!.size
+
         }
     
     }

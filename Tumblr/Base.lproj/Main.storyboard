@@ -233,8 +233,8 @@
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="loadingImage" destination="hVa-Q1-eaX" id="W9F-75-yNQ"/>
-                        <outlet property="scrollView" destination="Xbu-GK-kqa" id="Z30-iq-Xnd"/>
-                        <outlet property="trendingImage" destination="29t-FD-AKO" id="D3m-Fo-E6f"/>
+                        <outlet property="scrollView" destination="Xbu-GK-kqa" id="yBn-Lv-Tvg"/>
+                        <outlet property="trendingImage" destination="29t-FD-AKO" id="Zja-B3-dIz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MsK-JP-N86" userLabel="First Responder" sceneMemberID="firstResponder"/>

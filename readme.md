@@ -6,11 +6,12 @@ This is an assigment I'm working on for the iOS for Designers Bootcamp by CodePa
 12 hours
 
 ###Completed user stories:
+All of them!
 
 1. Setup:
     * [x] Create a new project (disable Auto Layout). 
     * [x] Add the image assets above. 
-	* [] Configure the app icon and splash screen. 
+	* [x] Configure the app icon and splash screen. 
 2. Create initial TabBarViewController view
     * [x] Add a view that is 44 pts tall for the tab bar and choose the color.
     * [x] Add 5 buttons for Home, Search, Compose, Account, and Trending. Be sure to configure them as custom buttons with images for the default and selected state.
