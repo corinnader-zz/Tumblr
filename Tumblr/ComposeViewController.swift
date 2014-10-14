@@ -18,7 +18,8 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
     @IBOutlet weak var linkImage: UIImageView!
     @IBOutlet weak var chatImage: UIImageView!
     @IBOutlet weak var videoImage: UIImageView!
-
+    @IBOutlet weak var nevermindButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         animateIcons(600)
@@ -55,7 +56,6 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
         
         if (isPresenting) {
             // Intro segue
-            
             containerView.addSubview(toViewController.view)
             toViewController.view.alpha = 0
             animateIcons(0)
@@ -67,7 +67,12 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
         } else {
             // Outro segue
             animateIcons(-200)
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
+            
+            UIView.animateWithDuration(0.7, animations: { () -> Void in
+                self.nevermindButton.transform = CGAffineTransformMakeTranslation(0, 200)
+            })
+            
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
                 fromViewController.view.alpha = 0
                 }) { (finished: Bool) -> Void in
                     transitionContext.completeTransition(true)
@@ -79,32 +84,32 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
     //Animate out icons
     func animateIcons(position: CGFloat){
         // Text image
-        UIView.animateWithDuration(0.7, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut | UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+        UIView.animateWithDuration(0.6, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut | UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
             self.textImage.transform = CGAffineTransformMakeTranslation(0, position)
             }, completion: nil)
         
         // Photo image
-        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+        UIView.animateWithDuration(0.4, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             self.photoImage.transform = CGAffineTransformMakeTranslation(0, position)
             }, completion: nil)
         
         // Quote image
-        UIView.animateWithDuration(0.6, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             self.quoteImage.transform = CGAffineTransformMakeTranslation(0, position)
             }, completion: nil)
         
         // Link image
-        UIView.animateWithDuration(0.7, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+        UIView.animateWithDuration(0.6, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             self.linkImage.transform = CGAffineTransformMakeTranslation(0, position)
             }, completion: nil)
         
         // Chat image
-        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+        UIView.animateWithDuration(0.4, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             self.chatImage.transform = CGAffineTransformMakeTranslation(0, position)
             }, completion: nil)
         
         // Video image
-        UIView.animateWithDuration(0.6, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             self.videoImage.transform = CGAffineTransformMakeTranslation(0, position)
             }, completion: nil)
         

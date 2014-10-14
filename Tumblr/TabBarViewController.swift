@@ -64,7 +64,7 @@ class TabBarViewController: UIViewController{
         
     }
 
-  // Must be a smarter way to do this?
+  // Must be a smarter way to do this without all the repetition?
     @IBAction func onTab(sender: AnyObject) {
         selectedTab = sender as UIButton
         

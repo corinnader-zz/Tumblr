@@ -296,6 +296,7 @@
                         <outlet property="chatImage" destination="2MQ-1z-Nbj" id="NsX-nT-kJd"/>
                         <outlet property="composeView" destination="jqH-El-rgO" id="rnK-2W-6TO"/>
                         <outlet property="linkImage" destination="85d-Kc-APk" id="bHX-GV-Msg"/>
+                        <outlet property="nevermindButton" destination="puM-1K-CHQ" id="dhf-jc-bQP"/>
                         <outlet property="photoImage" destination="2au-si-rMx" id="dHg-Ws-hW9"/>
                         <outlet property="quoteImage" destination="aYt-MY-ayv" id="I2S-jy-09R"/>
                         <outlet property="textImage" destination="g03-U1-zWo" id="AXG-9F-8iY"/>
